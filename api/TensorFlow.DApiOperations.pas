@@ -1,4 +1,4 @@
-{$REGION 'Licence'}
+{$REGION 'License'}
 { Copyright 2015 The TensorFlow Authors. All Rights Reserved.
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -64,7 +64,7 @@ TFGraphHelper = class Helper for TFGraph
   /// </param>
   /// <returns>
   ///   A placeholder tensor that must be replaced using the feed mechanism.
-  ///   The TFOperation can be fetched from the resulting TFOutput, by fethching the Operation property from the result.
+  ///   The TFOperation can be fetched from the resulting TFOutput, by fetching the Operation property from the result.
   /// </returns>
   /// <remarks>
   ///   N.B. This operation will fail with an error if it is executed. It is
@@ -140,7 +140,7 @@ TFGraphHelper = class Helper for TFGraph
   ///   The (possibly partially specified) shape of this variable.
   /// </param>
   /// <returns>
-  ///   The TFOperation can be fetched from the resulting TFOutput, by fethching the Operation property from the result.
+  ///   The TFOperation can be fetched from the resulting TFOutput, by fetching the Operation property from the result.
   /// </returns>
   function OpVarHandle(dtype: TF_DataType; shape: TFShape;
                        container: TFString = ''; shared_name: TFString = '';
@@ -180,7 +180,7 @@ TFGraphHelper = class Helper for TFGraph
   ///   the dtype of the value.
   /// </param>
   /// <returns>
-  ///   The TFOperation can be fetched from the resulting TFOutput, by fethching the Operation property from the result.
+  ///   The TFOperation can be fetched from the resulting TFOutput, by fetching the Operation property from the result.
   /// </returns>
   /// <remarks>
   ///   The tensor returned by this operation is immutable.
@@ -250,7 +250,7 @@ TFGraphHelper = class Helper for TFGraph
   ///   If specified, the created operation in the graph will be this one, otherwise it will be named 'Abs'.
   /// </param>
   /// <returns>
-  ///   The eration can be fetched from the resulting TFOutput, by fethching the Operation property from the result.
+  ///   The eration can be fetched from the resulting TFOutput, by fetching the Operation property from the result.
   /// </returns>
   /// <remarks>
   ///   Given a tensor `x`, this operation returns a tensor containing the absolute
@@ -270,13 +270,32 @@ TFGraphHelper = class Helper for TFGraph
   ///   If specified, the created operation in the graph will be this one, otherwise it will be named 'Add'.
   /// </param>
   /// <returns>
-  ///   The eration can be fetched from the resulting TFOutput, by fethching the Operation property from the result.
+  ///   The eration can be fetched from the resulting TFOutput, by fetching the Operation property from the result.
   /// </returns>
   /// <remarks>
   ///   *NOTE*: `Add` supports broadcasting. `AddN` does not. More about broadcasting
   ///   [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
   /// </remarks>
   function OpAdd(x, y: TFOutput; operName: TFString = ''): TFOutput;
+
+/// <summary>
+  ///   Returns x - y element-wise.
+  /// </summary>
+  /// <param name="x">
+  /// </param>
+  /// <param name="y">
+  /// </param>
+  /// <param name="operName">
+  ///   If specified, the created operation in the graph will be this one, otherwise it will be named 'Subtract'.
+  /// </param>
+  /// <returns>
+  ///   The eration can be fetched from the resulting TFOutput, by fetching the Operation property from the result.
+  /// </returns>
+  /// <remarks>
+  ///   *NOTE*: `Subtract` supports broadcasting. More about broadcasting
+  ///   [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
+  /// </remarks>
+  function OpSub(x, y: TFOutput; operName: TFString = ''): TFOutput;
 
   // ..........................
 
@@ -308,7 +327,7 @@ TFGraphHelper = class Helper for TFGraph
   /// <param name="dtype">
   /// </param>
   /// <returns>
-  ///   The eration can be fetched from the resulting TFOutput, by fethching the Operation property from the result.
+  ///   The eration can be fetched from the resulting TFOutput, by fetching the Operation property from the result.
   /// </returns>
   function OpConst(value: TFTensor; dtype: TF_DataType; operName: TFString = ''): TFOutput; overload;
 
@@ -325,7 +344,7 @@ TFGraphHelper = class Helper for TFGraph
   ///   If specified, the created operation in the graph will be this one, otherwise it will be named 'Mul'.
   /// </param>
   /// <returns>
-  ///   The TFOperation can be fetched from the resulting TFOutput, by fethching the Operation property from the result.
+  ///   The TFOperation can be fetched from the resulting TFOutput, by fetching the Operation property from the result.
   /// </returns>
   /// <remarks>
   ///   *NOTE*: `Mul` supports broadcasting. More about broadcasting
@@ -346,7 +365,7 @@ TFGraphHelper = class Helper for TFGraph
   ///   If specified, the created operation in the graph will be this one, otherwise it will be named 'Div'.
   /// </param>
   /// <returns>
-  ///   The TFOperation can be fetched from the resulting TFOutput, by fethching the Operation property from the result.
+  ///   The TFOperation can be fetched from the resulting TFOutput, by fetching the Operation property from the result.
   /// </returns>
   /// <remarks>
   ///   *NOTE*: `Div` supports broadcasting. More about broadcasting
@@ -369,7 +388,7 @@ TFGraphHelper = class Helper for TFGraph
   ///   If specified, the created operation in the graph will be this one, otherwise it will be named 'ArgMax'.
   /// </param>
   /// <returns>
-  ///   The TFOperation can be fetched from the resulting TFOutput, by fethching the Operation property from the result.
+  ///   The TFOperation can be fetched from the resulting TFOutput, by fetching the Operation property from the result.
   /// </returns>
   /// <remarks>
   ///   Note that in case of ties the identity of the return value is not guaranteed.
@@ -389,7 +408,7 @@ TFGraphHelper = class Helper for TFGraph
   ///   If specified, the created operation in the graph will be this one, otherwise it will be named 'ArgMin'.
   /// </param>
   /// <returns>
-  ///   The TFOperation can be fetched from the resulting TFOutput, by fethching the Operation property from the result.
+  ///   The TFOperation can be fetched from the resulting TFOutput, by fetching the Operation property from the result.
   /// </returns>
   /// <remarks>
   ///   Note that in case of ties the identity of the return value is not guaranteed.
@@ -407,7 +426,7 @@ TFGraphHelper = class Helper for TFGraph
   ///   If specified, the created operation in the graph will be this one, otherwise it will be named 'Sin'.
   /// </param>
   /// <returns>
-  ///   The TFOperation can be fetched from the resulting TFOutput, by fethching the Operation property from the result.
+  ///   The TFOperation can be fetched from the resulting TFOutput, by fetching the Operation property from the result.
   /// </returns>
   function OpSin(x: TFOutput; operName: TFString = ''): TFOutput;
 
@@ -420,7 +439,7 @@ TFGraphHelper = class Helper for TFGraph
   ///   If specified, the created operation in the graph will be this one, otherwise it will be named 'Cos'.
   /// </param>
   /// <returns>
-  ///   The TFOperation can be fetched from the resulting TFOutput, by fethching the Operation property from the result.
+  ///   The TFOperation can be fetched from the resulting TFOutput, by fetching the Operation property from the result.
   /// </returns>
   function OpCos(x: TFOutput; operName: TFString = ''): TFOutput;
 
@@ -433,7 +452,7 @@ TFGraphHelper = class Helper for TFGraph
   ///   If specified, the created operation in the graph will be this one, otherwise it will be named 'Tan'.
   /// </param>
   /// <returns>
-  ///   The TFOperation can be fetched from the resulting TFOutput, by fethching the Operation property from the result.
+  ///   The TFOperation can be fetched from the resulting TFOutput, by fetching the Operation property from the result.
   /// </returns>
   function OpTan(x: TFOutput; operName: TFString = ''): TFOutput;
 
@@ -446,7 +465,7 @@ TFGraphHelper = class Helper for TFGraph
   ///   If specified, the created operation in the graph will be this one, otherwise it will be named 'Asin'.
   /// </param>
   /// <returns>
-  ///   The TFOperation can be fetched from the resulting TFOutput, by fethching the Operation property from the result.
+  ///   The TFOperation can be fetched from the resulting TFOutput, by fetching the Operation property from the result.
   /// </returns>
   function OpASin(x: TFOutput; operName: TFString = ''): TFOutput;
 
@@ -459,7 +478,7 @@ TFGraphHelper = class Helper for TFGraph
   ///   If specified, the created operation in the graph will be this one, otherwise it will be named 'Acos'.
   /// </param>
   /// <returns>
-  ///   The TFOperation can be fetched from the resulting TFOutput, by fethching the Operation property from the result.
+  ///   The TFOperation can be fetched from the resulting TFOutput, by fetching the Operation property from the result.
   /// </returns>
   function OpACos(x: TFOutput; operName: TFString = ''): TFOutput;
 
@@ -472,7 +491,7 @@ TFGraphHelper = class Helper for TFGraph
   ///   If specified, the created operation in the graph will be this one, otherwise it will be named 'Atan'.
   /// </param>
   /// <returns>
-  ///   The TFOperation can be fetched from the resulting TFOutput, by fethching the Operation property from the result.
+  ///   The TFOperation can be fetched from the resulting TFOutput, by fetching the Operation property from the result.
   /// </returns>
   function OpATan(x: TFOutput; operName: TFString = ''): TFOutput;
 
@@ -495,7 +514,7 @@ TFGraphHelper = class Helper for TFGraph
   ///   If true, "b" is transposed before multiplication.
   /// </param>
   /// <returns>
-  ///   The TFOperation can be fetched from the resulting TFOutput, by fethching the Operation property from the result.
+  ///   The TFOperation can be fetched from the resulting TFOutput, by fetching the Operation property from the result.
   /// </returns>
   /// <remarks>
   ///   The inputs must be two-dimensional matrices and the inner dimension of
@@ -527,7 +546,7 @@ TFGraphHelper = class Helper for TFGraph
   /// </param>
   /// <returns>
   ///   The reduced tensor.
-  ///   The TFOperation can be fetched from the resulting TFOutput, by fethching the Operation property from the result.
+  ///   The TFOperation can be fetched from the resulting TFOutput, by fetching the Operation property from the result.
   /// </returns>
   /// <remarks>
   ///   Reduces `input` along the dimensions given in `reduction_indices`. Unless
@@ -554,7 +573,7 @@ TFGraphHelper = class Helper for TFGraph
   /// </param>
   /// <returns>
   ///   1-D.
-  ///   The TFOperation can be fetched from the resulting TFOutput, by fethching the Operation property from the result.
+  ///   The TFOperation can be fetched from the resulting TFOutput, by fetching the Operation property from the result.
   /// </returns>
   /// <remarks>
   ///   This operation creates a sequence of numbers that begins at `start` and
@@ -940,6 +959,17 @@ begin
  l_oDesc.AddInput(resource);
  l_oDesc.AddInput(value);
  Result := l_oDesc.FinishOperation();
+end;
+
+function TFGraphHelper.OpSub(x, y: TFOutput; operName: TFString): TFOutput;
+var
+ l_oDesc: TFOperationDesc;
+ l_sBuf1, l_sBuf2: TFString;
+begin
+ l_oDesc := TFOperationDesc.Create(self, _PTFChar('Sub',l_sBuf1), MakeName('Sub', operName, l_sBuf2));
+ l_oDesc.AddInput(x);
+ l_oDesc.AddInput(y);
+ Result := TFOutput.Create(l_oDesc.FinishOperation());
 end;
 
 function TFGraphHelper.OpSum(input: TFOutput; reduction_indices: TFOutput; keep_dims: Boolean = False; operName: TFString = ''): TFOutput;
